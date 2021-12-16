@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 pipeline = DAG(
     'first_dag',
     'First Pipeline as DAG',
-    start_date=datetime.today() - timedelta(days=1),
+    start_date=datetime.now() + timedelta(minutes=3),
     schedule_interval=timedelta(days=1)
 )
 
