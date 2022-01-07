@@ -40,8 +40,8 @@ def structure_food_data(data:dict):
         return data
 
 
-def structure_all_foods_data():
-    foods_data = fetch_all_food_data()
+def structure_all_foods_data(foods_data:list):
+
     transformed_foods_data_list = []
 
     for food in foods_data:
@@ -53,4 +53,4 @@ def structure_all_foods_data():
 
 
 if __name__ == '__main__':
-    print(structure_all_foods_data())
+    print(structure_all_foods_data(fetch_all_food_data()))

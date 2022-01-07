@@ -10,8 +10,7 @@ def fetch_food_data(food_id):
     return data
 
 
-def fetch_all_food_data():
-    food_ids = get_all_food_ids()
+def fetch_all_food_data(food_ids:list):
 
     foods_list = []
 
@@ -23,7 +22,7 @@ def fetch_all_food_data():
 
 
 if __name__ == '__main__':
-    print(fetch_all_food_data())
+    print(fetch_all_food_data(get_all_food_ids()))
 
 
 
