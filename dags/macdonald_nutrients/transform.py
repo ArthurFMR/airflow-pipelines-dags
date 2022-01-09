@@ -1,4 +1,6 @@
-from extract import fetch_all_food_data
+from airflow.decorators import task
+from macdonald_nutrients.extract import fetch_all_food_data
+from utils import _read_file, _save_to_file
 
 
 def get_nutrient_value(nutrient_facts:dict, nutrient_id:str):
@@ -40,7 +42,10 @@ def structure_food_data(data:dict):
         return data
 
 
-def structure_all_foods_data(foods_data:list):
+@task(task_id="transform")
+def structure_all_foods_data(path:str):
+
+    foods_data = _read_file(path)
 
     transformed_foods_data_list = []
 
@@ -49,7 +54,10 @@ def structure_all_foods_data(foods_data:list):
         if data != None:
             transformed_foods_data_list.append(data)
     
-    return transformed_foods_data_list
+    file_name = path.split('/')[-1]
+    transformed_path = _save_to_file(file_name, transformed_foods_data_list)
+    
+    return transformed_path
 
 
 if __name__ == '__main__':
