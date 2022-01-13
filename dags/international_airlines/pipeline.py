@@ -17,7 +17,8 @@ default_args = {
 with DAG(
     'international_airlines_pipeline', 
     default_args=default_args, 
-    schedule_interval=timedelta(days=30)
+    schedule_interval=timedelta(days=30),
+    catchup=False
     ) as dag:
 
     airlines = fetch_data() # Return path to csv file
