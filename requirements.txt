@@ -2,6 +2,7 @@ beautifulsoup4
 requests
 pandas
 SQLAlchemy
+python-dotenv
 alembic==1.7.5
 anyio==3.4.0
 apache-airflow==2.2.2

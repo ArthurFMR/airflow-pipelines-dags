@@ -13,3 +13,5 @@ def transform(path:str):
     transformed_df.columns = map(str.lower, transformed_df.columns)
 
     transformed_df.to_csv(path)
+
+    return path
